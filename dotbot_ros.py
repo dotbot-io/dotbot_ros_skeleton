@@ -2,6 +2,7 @@
 
 
 from rospy import Rate, Publisher, Subscriber, init_node
+import rospy
 
 class DotbotNode:
     main_rate = None
@@ -17,7 +18,6 @@ class DotbotNode:
             rospy.spin()
 
 if __name__ == '__main__':
-    import rospy
     try:
         from node import Node
         ne = Node()
