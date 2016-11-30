@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+
 from rospy import Rate, Publisher, Subscriber
 
 class DotbotNode:
