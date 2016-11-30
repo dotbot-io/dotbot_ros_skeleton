@@ -1,6 +1,6 @@
 from rospy import Rate, Publisher, Subscriber
 
-class DotbotNode():
+class DotbotNode:
     main_rate = None
 
     def __init__(self):
