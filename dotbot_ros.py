@@ -15,7 +15,7 @@ class DotbotNode:
         if self.loop_rate is not None:
             while not rospy.is_shutdown():
                 self.loop()
-                self.main_rate.sleep()
+                self.loop_rate.sleep()
         else:
             rospy.spin()
 
