@@ -7,8 +7,8 @@ class DotbotNode:
     main_rate = None
     node_name = 'dotbot_node'
     def __init__(self):
-        self.setup()
         init_node(self.node_name)
+        self.setup()
         if self.main_rate is not None:
             while not rospy.is_shutdown():
                 self.loop()
