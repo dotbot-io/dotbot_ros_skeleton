@@ -1,15 +1,18 @@
 #!/usr/bin/env python
 
-from rospy import Rate, Publisher, Subscriber, init_node
+from rospy import Rate, Subscriber, init_node
 import rospy
 
+def Publisher(name, msg_type, queue_size=50):
+    return rospy.Publisher(name, msg_type, queue_size=queue_size)
+
 class DotbotNode:
-    main_rate = None
+    loop_rate = None
     node_name = 'node'
     def __init__(self):
         init_node(self.node_name)
         self.setup()
-        if self.main_rate is not None:
+        if self.loop_rate is not None:
             while not rospy.is_shutdown():
                 self.loop()
                 self.main_rate.sleep()
