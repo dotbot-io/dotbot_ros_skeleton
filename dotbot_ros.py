@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-
 from rospy import Rate, Publisher, Subscriber, init_node
 import rospy
 
 class DotbotNode:
     main_rate = None
-    node_name = 'dotbot_node'
+    node_name = 'node'
     def __init__(self):
         init_node(self.node_name)
         self.setup()
