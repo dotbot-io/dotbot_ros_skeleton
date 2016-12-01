@@ -10,9 +10,9 @@ def on_topic(topic, msg):
     def sub_decorator(func):
         rospy.Subscriber(topic, msg, func)
         import functools
-        @functools.wraps(function)
+        @functools.wraps(func)
         def wrapper(self, *args):
-            function(self, *args)
+            func(self, *args)
         return wrapper
     return sub_decorator
 
