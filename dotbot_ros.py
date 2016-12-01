@@ -9,7 +9,11 @@ def Publisher(name, msg_type, queue_size=50):
 def on_topic(topic, msg):
     def sub_decorator(func):
         rospy.Subscriber(topic, msg, func)
-        return func
+        import functools
+        @functools.wraps(function)
+        def wrapper(self, *args):
+            function(self, *args)
+        return wrapper
     return sub_decorator
 
 
