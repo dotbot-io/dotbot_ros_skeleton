@@ -6,6 +6,13 @@ import rospy
 def Publisher(name, msg_type, queue_size=50):
     return rospy.Publisher(name, msg_type, queue_size=queue_size)
 
+def on_topic(topic, msg):
+    def sub_decorator(func):
+        rospy.Subscriber(topic, msg, func)
+        return func
+    return sub_decorator
+
+
 class DotbotNode:
     loop_rate = None
     node_name = 'node'
